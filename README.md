@@ -1,2 +1,2 @@
-# CSV2CXX
-Used to Export numerical CSV data into Cpp Elements  
+# CSV2Eigen
+Used to Export numerical CSV data into Eigen Cpp Objects  
