@@ -1,5 +1,5 @@
 # CSV2Eigen
-This repository is used to parse/extract data from a CSV file to a container (vector storage indexed by line/row of CSV) which stores vector storages of the standard doubles, Eigen vectors, and Eigen matrice. (see diagram below)
+This repository is used to parse/extract data from a CSV file to a container (vector storage indexed by line/row of CSV) which stores vector storages of the standard doubles, Eigen vectors, and Eigen matrices. (see diagram below)
 
 # Dependencies
 1. [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page)
