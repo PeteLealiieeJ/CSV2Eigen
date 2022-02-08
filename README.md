@@ -1,8 +1,12 @@
 # CSV2Eigen
 This repository is used to parse/extract data from a CSV file to a container (vector storage indexed by line/row of CSV) which stores vector storages of the standard doubles, Eigen vectors, and Eigen matrice. (see diagram below)
 
+# Dependencies
+1. [Eigen](https://eigen.tuxfamily.org/index.php?title=Main_Page)
+
 <!-- insert image of container setup -->
 
+# Utilization
 Knowledge of the following are required to utilize CSV2Eigen::C2EExtract
 
 - Class C2ESpec 
