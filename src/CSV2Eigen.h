@@ -1,3 +1,5 @@
+#pragma once 
+
 #include <Eigen/Dense>
 #include <string>
 #include <iostream>
@@ -9,19 +11,26 @@
 //STRING STREAM
 #include <sstream>
 
-class C2EerrorHandler{
-    public:
-        size_t id;  // ERROR HANDLER ID
-        std::string msg;    // ERROR MESSAGE
-        C2EerrorHandler( size_t, std::string );
-};
+// I USE THE SAME ERROR HANDLER SET UP ACROSS MULTIPLE REPOS
+// SO WE'LL "GUARD" THIS 
+#ifndef ERRORHANDLER_H
+#define ERRORHANDLER_H
 
-class C2EExport{
+    class errorHandler{
+        public:
+            size_t id;  // ERROR HANDLER ID
+            std::string msg;    // ERROR MESSAGE
+            errorHandler( size_t, std::string );
+    };
+
+#endif 
+
+class C2EContainer{
     public:
         std::vector<double> doubles;    // VECTOR OF DOUBLES
         std::vector<Eigen::VectorXd> vectors;   // VECTOR OF EIGEN::VECTORS
         std::vector<Eigen::MatrixXd> matrices;  // VECTOR OF EIGEN::MATRICES
-        C2EExport( std::vector<double>,
+        C2EContainer( std::vector<double>,
             std::vector<Eigen::VectorXd>,
             std::vector<Eigen::MatrixXd> );
 };
@@ -36,9 +45,9 @@ class C2ESpec{
 
 class CSV2Eigen{
     public: 
-        static void parseC2E(
+        static void C2EExtract(
             std::string, // FILEPATH
-            std::vector<C2EExport>&,    //EXPORT CONTAINER
+            std::vector<C2EContainer>&,     //EXPORT CONTAINER
             C2ESpec,    // SPECIFICATIONI CONTAINER
             size_t = 0  // NUMBER OF HEADLINES
             );

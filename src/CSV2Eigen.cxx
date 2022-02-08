@@ -1,13 +1,13 @@
 #include "CSV2Eigen.h"
 
+
 // ERROR HANDLER CONSTRUCTOR 
-C2EerrorHandler::C2EerrorHandler(size_t idi, std::string msgi):
+inline errorHandler::errorHandler(size_t idi, std::string msgi):
 id(idi),msg(msgi){};
 
 //////////////////////////////////////////////////////////////////////////////////
 
-// 
-C2EExport::C2EExport(std::vector<double> doublesi,
+C2EContainer::C2EContainer(std::vector<double> doublesi,
         std::vector<Eigen::VectorXd> vectorsi,
         std::vector<Eigen::MatrixXd> matricesi): 
         doubles(doublesi), vectors(vectorsi), matrices(matricesi){};
@@ -20,9 +20,9 @@ C2ESpec::C2ESpec(std::vector<size_t> endIi,std::vector<char> typi){
             std::string msg{  
                 "NUMBER OF TYPES AND NUMBER OF VECTORS DONT MATCH"
             };
-            throw(C2EerrorHandler(1,msg));
+            throw(errorHandler(1,msg));
         };
-    }catch( C2EerrorHandler& e  ){
+    }catch( errorHandler& e  ){
         std::cout << "ERROR CODE: " << e.id
                 << " \n - " << e.msg << std::endl;
     }
@@ -32,8 +32,8 @@ C2ESpec::C2ESpec(std::vector<size_t> endIi,std::vector<char> typi){
 
 //////////////////////////////////////////////////////////////////////////////////
 
-void CSV2Eigen::parseC2E(   std::string file_path,   // FILE PATH
-    std::vector<C2EExport>& eigenContainer,  // CONATINER FOR EXPORT CLASS
+void CSV2Eigen::C2EExtract(   std::string file_path,   // FILE PATH
+    std::vector<C2EContainer>& eigenContainer,  // CONATINER FOR EXPORT CLASS
     C2ESpec spec,   // USER-INPUT SPECIFICATIONS
     size_t headLines    // NUMBER OF HEADER LINES DEF 0
 ){
@@ -127,7 +127,7 @@ void CSV2Eigen::parseC2E(   std::string file_path,   // FILE PATH
         }
 
         // PUSHBACK EXPORT CLASS INTO EXPORT CONTAINER
-        eigenContainer.push_back( C2EExport(dvec,vvec,mvec) );
+        eigenContainer.push_back( C2EContainer(dvec,vvec,mvec) );
 
         // EFFECTIVELY "CLEAR" THE LINE VARIABLE 
         line = "";
