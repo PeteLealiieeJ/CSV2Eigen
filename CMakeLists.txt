@@ -14,5 +14,5 @@ target_link_libraries(
   Eigen3::Eigen
 )
 
-# Examples folder
-add_subdirectory(examples)
+# UNCOMMENT TO BUILD EXAMPLES FOLDER
+# add_subdirectory(examples)
