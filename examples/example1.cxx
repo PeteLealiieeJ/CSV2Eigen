@@ -7,11 +7,10 @@ int main(){
     std::vector<char> typ{'d','v','v','v','v'};
     C2ESpec specs(endpoints,typ);
 
-    std::vector<C2EContainer> container;
     size_t numHeadLines = 1;
     std::string path{"example.csv"} ;
 
-    CSV2Eigen::C2EExtract( path,container,specs,numHeadLines );
+    std::vector<C2EContainer> container = CSV2Eigen::C2EExtract( path,specs,numHeadLines );
 
     /////////////////////////////////////////////////////////////////////////////
     

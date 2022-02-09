@@ -45,9 +45,8 @@ class C2ESpec{
 
 class CSV2Eigen{
     public: 
-        static void C2EExtract(
+        static std::vector<C2EContainer> C2EExtract(
             std::string, // FILEPATH
-            std::vector<C2EContainer>&,     //EXPORT CONTAINER
             C2ESpec,    // SPECIFICATIONI CONTAINER
             size_t = 0  // NUMBER OF HEADLINES
             );

@@ -32,11 +32,12 @@ C2ESpec::C2ESpec(std::vector<size_t> endIi,std::vector<char> typi){
 
 //////////////////////////////////////////////////////////////////////////////////
 
-void CSV2Eigen::C2EExtract(   std::string file_path,   // FILE PATH
-    std::vector<C2EContainer>& eigenContainer,  // CONATINER FOR EXPORT CLASS
+std::vector<C2EContainer> CSV2Eigen::C2EExtract( std::string file_path,   // FILE PATH
     C2ESpec spec,   // USER-INPUT SPECIFICATIONS
     size_t headLines    // NUMBER OF HEADER LINES DEF 0
 ){
+
+    std::vector<C2EContainer> eigenContainer; // CONTAINER FOR EXPORT CLASS
 
     // DECLARE FILE POINTER
     std::fstream fin;
@@ -138,6 +139,6 @@ void CSV2Eigen::C2EExtract(   std::string file_path,   // FILE PATH
     fin.close();
 
     // END 
-    return;
+    return eigenContainer;
 
 }
